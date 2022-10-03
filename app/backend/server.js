@@ -2,8 +2,8 @@ const { Client } = require('pg')
 
 const http = require("http");
 const url = require('url');
-const host = 'localhost';
-const port = 8000;
+const host = '0.0.0.0';
+const port = 80;
 
 const headers = {
     'Content-Type': 'application/json; charset=utf-8',
@@ -12,12 +12,15 @@ const headers = {
     'Access-Control-Max-Age': 2592000, // 30 days
 }
 
+const pgHost = process.env.PG_HOST || 'localhost'
+const pgPort = process.env.PG_PORT || 5432
+
 const client = new Client({
     user: 'test',
-    host: 'localhost',
+    host: pgHost,
     database: 'matveystepanov',
     password: '12345',
-    port: 5432,
+    port: pgPort,
 })
 client.connect()
 

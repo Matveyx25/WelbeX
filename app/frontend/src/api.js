@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000'// base url
+    baseURL: 'http://welbex.parasource.tech'// base url
 })
 
 export const tablesAPI = {
